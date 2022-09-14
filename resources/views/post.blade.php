@@ -3,16 +3,19 @@
 
 <head>
     <title>My blog</title>
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="/app.css">
 </head>
 
-<article>
+<body>
 
-    <?= $post ?>
+    <article>
 
-</article>
+        <?= $post ?>
+
+    </article>
 
 
-<a href="/">Go back</a>
+    <a href="/">Go back</a>
+</body>
 
 </html>
