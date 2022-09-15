@@ -7,10 +7,17 @@
 </head>
 
 
-<?php foreach ($posts as $post) : ?>
+<?php
 
+foreach ($posts as $post) : ?>
     <article>
-        <?php echo $post ?>
+
+        <h1>
+            <a href="/posts/<?= $post->slug ?>"><?php echo $post->title ?></a>
+        </h1>
+
+        <div><?= $post->excerpt ?></div>
+
     </article>
 
 <?php endforeach ?>
