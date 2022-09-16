@@ -29,20 +29,20 @@ class Post
 
     public static function find($slug)
     {
-        // $document = YamlFrontMatter::parseFile(resource_path("posts/$slug.html"));
-        // $post  = new Post(
-        //     $document->title,
-        //     $document->excerpt,
-        //     $document->body(),
-        //     $document->date,
-        //     $document->slug,
-        // );
 
-        // return $post;
-
-        $posts = static::all();
-        return $posts->firstWhere('slug', $slug);
+        return static::all()->firstWhere('slug', $slug);
     }
+
+    public static function findOrFail($slug)
+    {
+        $post = static::find($slug);
+
+        if (!$post) {
+            throw new ModelNotFoundException();
+        }
+        return $post;
+    }
+
 
     public static function all()
     {

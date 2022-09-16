@@ -1,6 +1,4 @@
-@extends ('layout')
-
-@section ('content')
+ <x-layout>
 
 <article>
 
@@ -10,7 +8,6 @@
     </div>
 </article>
 
-
 <a href="/">Go back</a>
 
-@endsection
+ </x-layout>
