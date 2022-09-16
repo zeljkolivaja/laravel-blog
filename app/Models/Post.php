@@ -47,19 +47,20 @@ class Post
     public static function all()
     {
 
-        $posts = collect(File::files(resource_path("posts")))
-            ->map(function ($file) {
-                $document = YamlFrontMatter::parseFile($file);
+        return cache()->rememberForever('post.all', function () {
+            return collect(File::files(resource_path("posts")))
+                ->map(function ($file) {
+                    $document = YamlFrontMatter::parseFile($file);
 
-                return new Post(
-                    $document->title,
-                    $document->excerpt,
-                    $document->body(),
-                    $document->date,
-                    $document->slug,
-                );
-            });
-
-        return $posts;
+                    return new Post(
+                        $document->title,
+                        $document->excerpt,
+                        $document->body(),
+                        $document->date,
+                        $document->slug,
+                    );
+                })
+                ->sortByDesc('date');
+        });
     }
 }

@@ -15,7 +15,6 @@ use App\Models\Post;
 */
 
 Route::get('/', function () {
-
     return view('posts', [
         'posts' => Post::all(),
     ]);
