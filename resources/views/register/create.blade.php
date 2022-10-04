@@ -12,8 +12,12 @@
                     </label>
 
                     <input class="w-full border border-gray-400 p-2" type="text" name="name" id="name"
-                        required>
+                        value="{{ old('name') }}" required>
+                    @error('name')
+                        <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
+
 
                 <div class="mb-6">
                     <label class="mb-2 block text-xs font-bold uppercase text-gray-700" for="username">
@@ -21,8 +25,13 @@
                     </label>
 
                     <input class="w-full border border-gray-400 p-2" type="text" name="username" id="username"
-                        required>
+                        value="{{ old('username') }}" required>
+                    @error('username')
+                        <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
+
+
 
                 <div class="mb-6">
                     <label class="mb-2 block text-xs font-bold uppercase text-gray-700" for="email">
@@ -30,8 +39,13 @@
                     </label>
 
                     <input class="w-full border border-gray-400 p-2" type="email" name="email" id="email"
-                        required>
+                        value="{{ old('email') }}" required>
+                    @error('email')
+                        <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
+
+
 
                 <div class="mb-6">
                     <label class="mb-2 block text-xs font-bold uppercase text-gray-700" for="password">
@@ -40,7 +54,12 @@
 
                     <input class="w-full border border-gray-400 p-2" type="password" name="password" id="password"
                         required>
+                    @error('password')
+                        <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
+                    @enderror
+
                 </div>
+
 
                 <div class="mb-6">
                     <button type="submit" class="rounded bg-blue-400 py-2 px-4 text-white hover:bg-blue-500">

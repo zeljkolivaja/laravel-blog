@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
@@ -17,16 +18,18 @@ class RegisterController extends Controller
     {
         $user = request()->validate([
             'name' => ['required', 'min:3', 'max:255'],
-            'username' => ['required', 'min:3', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
+            'username' => ['required', 'min:3', 'max:255', Rule::unique('users', 'username')],
+            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'password' => [
-                'required', 'min:7', 'max:255',
+                'required', 'max:255',
                 Password::min(8)->mixedCase()
             ],
 
         ]);
 
         User::create($user);
+
+        session()->flash('success', 'Your account has been created');
 
         return redirect('/');
     }
