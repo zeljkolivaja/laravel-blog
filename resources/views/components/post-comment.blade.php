@@ -13,7 +13,7 @@
 
                 <p class="text-xs">
                     Posted
-                    <time>{{ $comment->created_at }}</time>
+                    <time>{{ $comment->created_at->format('d/m/Y g:i A') }}</time>
                 </p>
             </header>
 
