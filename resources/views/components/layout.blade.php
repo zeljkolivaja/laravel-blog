@@ -7,6 +7,12 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
 
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
@@ -30,7 +36,7 @@
                     <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
                 @endauth
 
-                <a href="#"
+                <a href="#newsletter"
                     class="ml-3 rounded-full bg-blue-500 py-3 px-5 text-xs font-semibold uppercase text-white">
                     Subscribe for Updates
                 </a>
@@ -40,7 +46,8 @@
         {{ $slot }}
 
 
-        <footer class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 py-16 px-10 text-center">
+        <footer id="newsletter"
+            class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 py-16 px-10 text-center">
             <img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
             <h5 class="text-3xl">Stay in touch with the latest posts</h5>
             <p class="mt-3 text-sm">Promise to keep the inbox clean. No bugs.</p>
