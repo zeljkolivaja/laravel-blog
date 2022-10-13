@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('newsletter', NewsletterController::class);
 
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
